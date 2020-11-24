@@ -10,7 +10,7 @@ module.exports = merge(common, {
     devtool: 'inline-source-map',
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
-        port: 7665,
+        port: 3000,
         open: true
     },
     plugins: [
@@ -30,4 +30,7 @@ module.exports = merge(common, {
         filename: '[name].dev.js',
         publicPath: ASSET_PATH
     },
+    resolve: {
+        extensions: ['.js', '.css', '.vue']
+    }
 })
