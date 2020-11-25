@@ -1,8 +1,12 @@
-import Login from '../Login';
+import SideBar from '../Login/SideBar';
+import Form from '../Login/Form';
+import Table from '../Login/Table';
 import User from '../User';
 
 const routes = [
-    { path: '/', component: Login },
+    { path: '/', component: SideBar },
+    // { path: '/', component: Form },
+    // { path: '/', component: Table },
     { path: '/user/:id', component: User }
 ]
 export default routes;
