@@ -1,67 +1,64 @@
 <template>
-  <div>
-    <el-table
-      :data="tableData"
-      stripe
-      :fit="true"
-      size="small"
-    >
-      <el-table-column prop="date" label="日期" width="180"> </el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
-    </el-table>
-  </div>
+  <a-table
+    :columns="columns"
+    :data-source="data"
+    :scroll="{ x: '100%'}"
+    :pagination="false"
+  >
+    <a slot="action" slot-scope="text">action</a>
+  </a-table>
 </template>
-
 <script>
+const columns = [
+  {
+    title: "Full Name",
+    width: 100,
+    dataIndex: "name",
+    key: "name",
+    fixed: "left",
+    width: 200,
+  },
+  {
+    title: "Age",
+    width: 100,
+    dataIndex: "age",
+    key: "age",
+    fixed: "left",
+    width: 200,
+  },
+  { title: "Column 1", dataIndex: "address", key: "1", width: 200 },
+  { title: "Column 2", dataIndex: "address", key: "2", width: 200 },
+  { title: "Column 3", dataIndex: "address", key: "3", width: 200 },
+  { title: "Column 4", dataIndex: "address", key: "4", width: 200 },
+  { title: "Column 5", dataIndex: "address", key: "5", width: 200 },
+  { title: "Column 6", dataIndex: "address", key: "6", width: 200 },
+  { title: "Column 7", dataIndex: "address", key: "7", width: 200 },
+  { title: "Column 8", dataIndex: "address", key: "8", width: 200 },
+  {
+    title: "Action",
+    key: "operation",
+    fixed: "right",
+    width: 200,
+    scopedSlots: { customRender: "action" },
+  },
+];
+
+const data = [];
+for (let i = 0; i < 10; i++) {
+  data.push({
+    key: i,
+    name: `Edrward ${i}`,
+    age: 32,
+    address: `London Park no. ${i}`,
+  });
+}
+
 export default {
   data() {
     return {
-      tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄",
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄",
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄",
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄",
-        },
-      ],
-      // :header-cell-style="test"
-      // :cell-style="test"
-      test: {
-        backgroundColor: "yellow",
-        height: "40px",
-      },
+      data,
+      columns,
     };
   },
 };
 </script>
-
-<style>
-/* header-cell-class-name="test" */
-/* cell-class-name="test" */
-.test {
-  background-color: orange !important;
-}
-</style>

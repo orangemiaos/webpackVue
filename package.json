@@ -37,6 +37,7 @@
         "webpack-merge": "^5.2.0"
     },
     "dependencies": {
+        "ant-design-vue": "^1.7.2",
         "antd-mobile": "^2.3.4",
         "axios": "^0.20.0",
         "babel-plugin-import": "^1.13.1",
